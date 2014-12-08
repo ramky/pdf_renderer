@@ -4,6 +4,10 @@ ENV["RAILS_ENV"] = "test"
 require File.expand_path("../../test/dummy/config/environment.rb",  __FILE__)
 ActiveRecord::Migrator.migrations_paths = [File.expand_path("../../test/dummy/db/migrate", __FILE__)]
 require "rails/test_help"
+require "minitest/reporters"
+
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(reporter_options)]
 
 Rails.backtrace_cleaner.remove_silencers!
 
